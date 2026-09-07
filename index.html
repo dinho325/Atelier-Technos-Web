@@ -8,6 +8,353 @@
     <script src="js/script.js"></script>
 </head>
 <body>
-    
+    <!-- nav bar -->
+    <header style="height: 10%; margin-left: 10%;">
+        <div class="header-gauche">
+            <span class="titre">AI Workspace</span>
+        </div>
+        <div  class="header-droite">
+            <span>Admin User</span>
+            <span>▾</span>
+        </div>
+    </header>
+
+    <section>
+        <!-- La barre latérale -->
+        <div class="layout">
+            <aside id="aside">
+                <div class="aside-titre"><b style="padding: 10px;">AI Workspace</b></div>
+                <nav>
+                    <a href="#" class="nav-link active" data-page="tableau">Tableau de bord</a>
+                    <a href="#" class="nav-link " data-page="chat">Chat</a>
+                    <a href="#" class="nav-link" data-page="resume">Résumé de texte</a>
+                    <a href="#" class="nav-link" data-page="classification">Classification</a>
+                    <a href="#" class="nav-link" data-page="traduction">Traduction</a>
+                    <a href="#" class="nav-link" data-page="prediction">Prédiction</a>
+                    <a href="#" class="nav-link" data-page="historique">Historique</a>
+                </nav>
+            </aside>
+        
+            <!-- La zone principale -->
+            <main>
+                <section class="page active" id="page-tableau">
+                    <div>
+                        <h1 class="page-titre">Tableau de bord</h1>
+                        <p class="pge-soustitre">Bienvenue sur votre espace de travail intelligent.</p><br>
+                    </div>
+
+                    <div class="tab"  >
+                        <div class="carte">
+                            <p class="nom">Nombre de jeux de données</p>
+                            <p class="valeur">24</p>
+                            <p style="color: #2f6fed;">+3 ce mois-ci</p>
+                        </div>
+                        <div class="carte">
+                            <p class="nom">Nombre de requêtes</p>
+                            <p class="valeur">1,256</p>
+                            <p style="color: #22b07d;">+18% ce mois-ci</p>
+                        </div>
+                        <div class="carte">
+                            <p class="nom">Nombre de modèles disponibles</p>
+                            <p class="valeur">12</p>
+                            <p style="color: #8b5cf6;">+2 ce mois-ci</p>
+                        </div>
+                        <div class="carte">
+                            <p class="nom">Utilisateurs actifs</p>
+                            <p class="valeur">8</p>
+                            <p style="color: #f2a93b;">+2 ce mois-ci</p>
+                        </div>
+                        <div class="carte">
+                            <p class="nom">Tâches exécutées</p>
+                            <p class="valeur">342</p>
+                            <p style="color: #5fc9e8;">+22% ce mois-ci</p>
+                        </div>
+                    </div>
+
+            <div class="graphe-tab">
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>Requêtes par jour</h2>
+                        <select class="range-select">
+                            <option>7 derniers jours</option>
+                            <option>30 derniers jours</option>
+                        </select>
+                    </div>
+                    <svg viewBox="0 0 560 220" class="graphe-courbe" id="grapheCourbe">
+                        <polyline points="20,140 110,105 200,150 290,125 380,95 470,70 540,55"
+                        fill="none" stroke="#2f6fed" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <g fill="#2f6fed">
+                            <circle cx="20" cy="140" r="4"></circle>
+                            <circle cx="110" cy="105" r="4"></circle>
+                            <circle cx="200" cy="150" r="4"></circle>
+                            <circle cx="290" cy="125" r="4"></circle>
+                            <circle cx="380" cy="95" r="4"></circle>
+                            <circle cx="470" cy="70" r="4"></circle>
+                            <circle cx="540" cy="55" r="4"></circle>
+                        </g>
+                    </svg>
+                <div class="graphe-labels">
+                    <span>15 Mai</span><span>16 Mai</span><span>17 Mai</span><span>18 Mai</span>
+                    <span>19 Mai</span><span>20 Mai</span><span>21 Mai</span>
+                </div>
+            </div>
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>Répartition des requêtes par service</h2>
+                    </div>
+                    <div>
+                        <div class="pie" id="pieChart"></div>
+                        <ul class="legend">
+                            <li><span class="dot" style="background:#2f6fed"></span>Chat <b>38%</b></li>
+                            <li><span class="dot" style="background:#22b07d"></span>Résumé de texte <b>22%</b></li>
+                            <li><span class="dot" style="background:#8b5cf6"></span>Classification <b>18%</b></li>
+                            <li><span class="dot" style="background:#f2a93b"></span>Traduction <b>12%</b></li>
+                            <li><span class="dot" style="background:#5fc9e8"></span>Autres <b>10%</b></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-tab">
+                <div class="panel">
+                <div class="panel-header">
+                    <h2>Activité récente</h2>
+                </div>
+                <table class="data-table">
+                    <thead>
+                    <tr>
+                        <th>Activité</th>
+                        <th>Service</th>
+                        <th>Utilisateur</th>
+                        <th>Date</th>
+                    </tr>
+                    </thead>
+                    <tbody id="recentActivityBody">
+                        <tr>
+                            <td>Résumé du document_projet.pdf</td>
+                            <td>Résumé de texte</td>
+                            <td>Admin User</td>
+                            <td>21/05/2024 14:32</td>
+                        </tr>
+                        <tr>
+                            <td>Classification de sentiments</td>
+                            <td>Classification</td>
+                            <td>Admin User</td>
+                            <td>21/05/2024 14:21</td>
+                        </tr>
+                        <tr>
+                            <td>Traduction FR → EN</td>
+                            <td>Traduction</td>
+                            <td>Admin User</td>
+                            <td>21/05/2024 14:15</td>
+                        </tr>
+                        <tr>
+                            <td>Discussion sur l'IA générative</td>
+                            <td>Chat</td>
+                            <td>Admin User</td>
+                            <td>21/05/2024 14:05</td>
+                        </tr>
+                        <tr>
+                            <td>Génération d'idées de projet</td>
+                            <td>Idées</td>
+                            <td>Admin User</td>
+                            <td>21/05/2024 13:50</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="#" class="see-all" data-page="historique">Voir tout l'historique</a>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header"><h2>Modèles populaires</h2></div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Modèle</th>
+                            <th class="droit">Utilisations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>mistral-7b-instruct</td>
+                            <td class="droit">532</td>
+                        </tr>
+                        <tr>
+                            <td>gpt-4-turbo</td>
+                            <td class="droit">389</td>
+                        </tr>
+                        <tr>
+                            <td>llama-3-8b</td>
+                            <td class="droit">256</td>
+                        </tr>
+                        <tr>
+                            <td>bert-base-uncased</td>
+                            <td class="droit">179</td>
+                        </tr>
+                        <tr>
+                            <td>google-translate-v1</td>
+                            <td class="droit">142</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="#" class="see-all">Voir tous les modèles</a>
+            </div>
+            </div>
+            </section>
+
+            <!-- Chat  -->
+            <section class="page" id="page-chat">
+                <h1 class="page-titre">Chat</h1>
+                <p class="page-soustitre">Posez une question à l'assistant IA.</p>
+
+                <div class="panel form-panel">
+                    <label class="field-label" for="chatInput">Votre message</label>
+                    <textarea id="chatInput" class="textarea" rows="4" placeholder="Écrivez votre message ici..."></textarea>
+                    <div class="actions-row">
+                    <button class="btn-primary" id="chatSendBtn">Envoyer</button>
+                    </div>
+
+                    <div class="result-box" id="chatResultBox" hidden>
+                    <p class="result-label">Réponse de l'assistant</p>
+                    <div class="result-content" id="chatResultContent"></div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-header"><h2>Conversation</h2></div>
+                    <div id="chatThread" class="chat-thread">
+                    <p class="empty-state">Aucun message pour le moment. Démarrez la conversation ci-dessus.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Résumé de texte -->
+            <section class="page" id="page-resume">
+                <h1 class="page-title">Résumé de texte</h1>
+                <p class="page-subtitle">Collez un texte pour en obtenir un résumé automatique.</p><br>
+
+                <div class="panel form-panel">
+                    <label class="field-label" for="resumeInput">Texte à résumer</label>
+                    <textarea id="resumeInput" class="textarea" rows="8" placeholder="Collez ou saisissez votre texte ici..."></textarea>
+                    <div class="actions-row">
+                        <button class="btn-primary" id="resumeBtn">Résumer</button>
+                    </div>
+
+                    <div class="result-box" id="resumeResultBox" hidden>
+                        <p class="result-label">Résumé généré</p>
+                        <div class="result-content" id="resumeResultContent"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Classification -->
+            <section class="page" id="page-classification">
+                <h1 class="page-titre">Classification</h1>
+                <p class="page-soustitre">Analysez le sentiment ou la catégorie d'un texte.</p><br>
+
+                <div class="panel form-panel">
+                    <label class="field-label" for="classifInput">Texte à classifier</label>
+                    <textarea id="classifInput" class="textarea" rows="6" placeholder="Saisissez le texte à analyser..."></textarea>
+                    <div class="actions-row">
+                    <button class="btn-primary" id="classifBtn">Classifier</button>
+                    </div>
+
+                    <div class="result-box" id="classifResultBox" hidden>
+                    <p class="result-label">Résultat de la classification</p>
+                    <div class="result-content" id="classifResultContent"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Traduction -->
+            <section class="page" id="page-traduction">
+                <h1 class="page-title">Traduction</h1>
+                <p class="page-subtitle">Traduisez un texte dans la langue de votre choix.</p><br>
+
+                <div class="panel form-panel">
+                    <label class="field-label" for="traductionInput">Texte à traduire</label>
+                    <textarea id="traductionInput" class="textarea" rows="6" placeholder="Saisissez votre texte ici..."></textarea>
+
+                    <label class="field-label" for="langueSelect">Langue cible</label>
+                    <select id="langueSelect" class="select">
+                    <option value="en">Anglais</option>
+                    <option value="es">Espagnol</option>
+                    <option value="de">Allemand</option>
+                    <option value="ar">Arabe</option>
+                    <option value="wo">Wolof</option>
+                    </select>
+
+                    <div class="actions-row">
+                    <button class="btn-primary" id="traduireBtn">Traduire</button>
+                    </div>
+
+                    <div class="result-box" id="traductionResultBox" hidden>
+                    <p class="result-label">Traduction générée</p>
+                    <div class="result-content" id="traductionResultContent"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Prédiction -->
+            <section class="page" id="page-prediction">
+                <h1 class="page-title">Prédiction</h1>
+                <p class="page-subtitle">Obtenez une prédiction fictive à partir de quelques informations.</p><br>
+
+                <div class="panel form-panel">
+                    <div class="form-grid">
+                    <div>
+                        <label class="field-label" for="ageInput">Âge</label>
+                        <input type="number" id="ageInput" class="input" placeholder="Ex : 30" min="0">
+                    </div>
+                    <div>
+                        <label class="field-label" for="revenuInput">Revenu mensuel (€)</label>
+                        <input type="number" id="revenuInput" class="input" placeholder="Ex : 2500" min="0">
+                    </div>
+                    <div>
+                        <label class="field-label" for="villeInput">Ville</label>
+                        <input type="text" id="villeInput" class="input" placeholder="Ex : Dakar">
+                    </div>
+                    </div>
+                    <div class="actions-row">
+                    <button class="btn-primary" id="predireBtn">Prédire</button>
+                    </div>
+
+                    <div class="result-box" id="predictionResultBox" hidden>
+                    <p class="result-label">Prédiction</p>
+                    <div class="result-content" id="predictionResultContent"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Historique -->
+            <section class="page" id="page-historique">
+                <h1 class="page-title">Historique</h1>
+                <p class="page-subtitle">Retrouvez toutes vos requêtes enregistrées localement dans le navigateur.</p><br>
+
+                <div class="panel">
+                    <div class="history-toolbar">
+                    <input type="text" id="historySearch" class="input search-input" placeholder="Rechercher dans l'historique...">
+                    <button class="btn-danger" id="clearHistoryBtn">Vider l'historique</button>
+                    </div>
+
+                    <table class="data-table">
+                    <thead>
+                        <tr>
+                        <th>Service</th>
+                        <th>Entrée</th>
+                        <th>Résultat</th>
+                        <th>Date</th>
+                        <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyBody">
+                    </tbody>
+                    </table>
+                    <p>Aucun élément dans l'historique.</p>
+                </div>
+            </section>
+        </main>
+    </div>    
 </body>
 </html>
